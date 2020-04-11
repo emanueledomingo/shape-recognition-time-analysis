@@ -24,7 +24,7 @@ function scelta_colore($daltonismo){
             	if($color != 4){
                 	return convertiNumero($color);
                 }
-            }  
+            }
             if($daltonismo == 'Tritanopia'){
             	if(($color != 2) && ($color != 6)){
                 	return convertiNumero($color);
@@ -36,7 +36,7 @@ function scelta_colore($daltonismo){
 function convertiNumero($num){
 if($num == 1) return 'black';
 if($num == 2) return 'blue';
-if($num == 3) return 'gray_scale';
+if($num == 3) return 'grey_scale';
 if($num == 4) return 'green';
 if($num == 5) return 'red';
 if($num == 6) return 'yellow';
