@@ -54,7 +54,7 @@ def boxplot(color_name):
     if color_name == 'black':
         color = 0
         name = "neri"
-    elif color_name == 'gray':
+    elif color_name == 'grey':
         color = 1
         name = "scala di grigi"
         color_name = "grey_scale"
@@ -67,7 +67,7 @@ def boxplot(color_name):
     """
         the data structure has a 3-level strucutre:
         we have 10 levels (45,50,55,...,90)
-        each level has 3 different types (black, grey_scale or color_scale)
+        each level has 3 different types (black, gray_scale or color_scale)
         each tuple level-type has n observations
     """
     levels_times = list()
@@ -75,7 +75,7 @@ def boxplot(color_name):
     """
         the data structure has a 3-level strucutre:
         we have 10 levels (45,50,55,...,90)
-        each level has 3 different types (black, grey_scale or color_scale)
+        each level has 3 different types (black, gray_scale or color_scale)
         each tuple level-type has n observations
     """
     levels_means = list()
@@ -91,19 +91,24 @@ def boxplot(color_name):
     # copy the dataset into the formatted data structure
     for row in dataset:
         # tricky way to get and index in [0, 10) from the number of the shapes [45, 90]
-        mod = int(row[1]) % 45
+        mod = int(row[1]) - 45
         i = int(mod - (4 * (mod / 5)))
         if row[2] in color_name:
+            print(row)
             levels_times[i][color].append(float(row[0]))
+            print(levels_times[i][color])
 
+    print(levels_times)
     # calculating the statistical indicators
     for i in range(0, 10):
-        for j in range(0, 3):
-            if len(levels_times[i][j]) >= 2:
-                levels_means[i][j].append(median(levels_times[i][j]))
-                levels_means[i][j].append(iqr(levels_times[i][j], interpolation='midpoint'))
-            else:
-                print("Error: too few observations")
+        # for j in range(0, 3):
+        if len(levels_times[i][color]) >= 2:
+            levels_means[i][color].append(median(levels_times[i][color]))
+            levels_means[i][color].append(iqr(levels_times[i][color], interpolation='midpoint'))
+        else:
+            levels_means[i][color].append(1)
+            levels_means[i][color].append(1)
+            print("Error: too few observations")
 
     # creating the data for the plot function
     total_data = list()
@@ -115,13 +120,7 @@ def boxplot(color_name):
         data.append(0)
         total_data.append(data)
 
-    # creating the labels of the plot
-    """
-        labels = list()
-        for i in range(0, 50, 5):
-            labels.append(45+i)
-    """
-    #using list comprehension
+    # creating the labels of the plot using list comprehension
     labels = [45+i for i in range(0, 50, 5)]
 
     # creating the plot
@@ -157,7 +156,7 @@ def glm():
 
 def main():
     database_init()
-    boxplot('color')  # black, gray, color
+    boxplot('black')  # black, grey, color
     glm()
 
 
