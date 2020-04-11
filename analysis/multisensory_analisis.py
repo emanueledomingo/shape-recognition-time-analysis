@@ -98,10 +98,8 @@ def boxplot(color_name):
             levels_times[i][color].append(float(row[0]))
             print(levels_times[i][color])
 
-    print(levels_times)
     # calculating the statistical indicators
     for i in range(0, 10):
-        # for j in range(0, 3):
         if len(levels_times[i][color]) >= 2:
             levels_means[i][color].append(median(levels_times[i][color]))
             levels_means[i][color].append(iqr(levels_times[i][color], interpolation='midpoint'))
