@@ -135,20 +135,29 @@ def boxplot(color_name):
     plot.show()
 
 
+# function for calculate the generalized linear model
 def glm():
+    # print a brief summary of the dataframe
     print(dataframe.head())
+
+    # Poisson distributed data is intrinsically integer-valued, since we have to count data.
     fam = Poisson()
+    # No correlation between the observations
     ind = Independence()
+
     # Y(x0,x1,x2,x3) = B0 + B1X0 + B2X1 + B3X2 + B4X3 + B5X4
+    # Calculate the model
     model = GEE.from_formula("time ~ age + level + color + gender", "subject",
                              dataframe, cov_struct=ind, family=fam)
     result = model.fit()
+
+    # print the result
     print(result.summary())
 
 
 def main():
     database_init()
-    boxplot('color')
+    boxplot('color')  # black, gray, color
     glm()
 
 
