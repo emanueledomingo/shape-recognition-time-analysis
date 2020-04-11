@@ -27,11 +27,8 @@ CREATE TABLE `Soggetto` (
 
 After the completion of a level, through this query we upload the result
 ```sql
-  UPDATE `progettomultisensory`.`Soggetto`
-  SET `Genere` = '***',
-      `Eta` = ***,
-      `Daltonismo` = '***'
-  WHERE `Soggetto`.`ID_Soggetto` = ***
+INSERT INTO `my_progettomultisensory`.`Esperimento` (`Tipo`, `Livello`, `Tempo`, `Forma`, `ID_Soggetto`, `Colore`)
+VALUES ('***', '***', '***', '*', ***, '***')
 ```
 The form of the 'Esperimento' table will be:
 
