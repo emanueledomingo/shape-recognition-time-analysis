@@ -64,7 +64,7 @@ Finally we can plot the results
  The goal of the project is to find (if there's) a correlation between some factors like age, gender, age, number of the shapes and the time for the recognison of a particular shape in a set.
 
  In a wide range of statiscal tools, we use a glm with a particular distribution (Poisson)
- > Why? See the paper -> www.linkpaper TODO
+ > Why? See the paper -> [Link to paper](http://progettomultisensory.altervista.org/pages/paper.pdf)
 
  To do this we say thanks to [Statsmodel](https://www.statsmodels.org/)
 
