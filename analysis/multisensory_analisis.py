@@ -116,9 +116,13 @@ def boxplot(color_name):
         total_data.append(data)
 
     # creating the labels of the plot
-    labels = list()
-    for i in range(0, 50, 5):
-        labels.append(45+i)
+    """
+        labels = list()
+        for i in range(0, 50, 5):
+            labels.append(45+i)
+    """
+    #using list comprehension
+    labels = [45+i for i in range(0, 50, 5)]
 
     # creating the plot
     fig, ax = plot.subplots()
