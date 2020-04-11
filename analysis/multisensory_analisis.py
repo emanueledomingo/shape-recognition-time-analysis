@@ -57,7 +57,7 @@ def boxplot(color_name):
     elif color_name == 'gray':
         color = 1
         name = "scala di grigi"
-        color_name = "gray_scale"
+        color_name = "grey_scale"
     elif (color_name == 'color'):
         color = 2
         name = "scala di colori"
