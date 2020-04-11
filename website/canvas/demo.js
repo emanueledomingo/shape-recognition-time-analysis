@@ -51,7 +51,7 @@ showButton();
 }
 /*
 	if(shapeNumber <= 40){
-    
+
 		context.clearRect(0, 0, canvas.width, canvas.height);
         Shapes = [];
   		drawRandomShape();
@@ -64,7 +64,7 @@ showButton();
 var convertColor = function(number){
 if(number == 1) return 'black';
 if(number == 2) return 'blue';
-if(number == 3) return 'gray_scale';
+if(number == 3) return 'grey_scale';
 if(number == 4) return 'green';
 if(number == 5) return 'red';
 if(number == 6) return 'yellow';
@@ -85,46 +85,46 @@ var drawRandomShape = function () {
       var shape = new Shape(index, color_rnd);
       var xPos = Math.floor(Math.random() * (canvas.width-64));
       var yPos = Math.floor(Math.random() * (canvas.height-64));
-     // console.log("generated "+xPos+" "+yPos); 
+     // console.log("generated "+xPos+" "+yPos);
       shape.XPos = xPos +32;
       shape.YPos = yPos +32;
       if(Shapes.length > 1){
       	for(var j = 0; j < Shapes.length; j++){
         	var temp = Shapes[j];
             if((Math.abs(temp.XPos-shape.XPos) < 32) && (Math.abs(temp.YPos-shape.YPos) < 32)){
-            	if(Math.abs(temp.XPos-shape.XPos) < 32){           
-            		if(shape.XPos+33 >= canvas.width-64){                       
-                		shape.XPos = 45;                 
+            	if(Math.abs(temp.XPos-shape.XPos) < 32){
+            		if(shape.XPos+33 >= canvas.width-64){
+                		shape.XPos = 45;
                     	j = 0;
                 	}else{
                 		shape.XPos += 33;
                     	j = 0;
                 	}
             	}
-                if(Math.abs(temp.YPos-shape.YPos) < 32){  
-            		if(shape.YPos+33 >= canvas.height-64){               
+                if(Math.abs(temp.YPos-shape.YPos) < 32){
+            		if(shape.YPos+33 >= canvas.height-64){
                 		shape.YPos = 45;
                     	j = 0;
-                	}else{            
+                	}else{
                 		shape.YPos += 33;
                     	j = 0;
                 	}
             }
-            }           
+            }
         }
       }
       //console.log("positioned "+shape.XPos+" "+shape.YPos + " Index " + shape.index);
       Shapes.push(shape);
     }
     checkFindElement();
-    setTimeout(function(){ 
+    setTimeout(function(){
           for (var i = 0; i < Shapes.length; i++) {
           var temp = Shapes[i];
           context.drawImage(temp.Sprite, temp.XPos, temp.YPos, temp.Width, temp.Height);
     	}
     }, 1000);
 }
-//funzione che verifica se l'elemento da cercare è tra quelli generati random, se non lo è viene 
+//funzione che verifica se l'elemento da cercare è tra quelli generati random, se non lo è viene
 //sostituito il primo elemento, se invece l'elemento target viene trovato più volte deve essere
 //sostituito con uno casuale
 var checkFindElement = function(){
@@ -169,7 +169,7 @@ var main = function (shapeToFind, numberOfShape, color){
   //console.log("color to find: " + color);
   colorToFind = color;
   drawRandomShape();
-  document.getElementById("start").style.visibility = 'hidden'; 
+  document.getElementById("start").style.visibility = 'hidden';
   setTimeout("startTime()",1000);
 }
 
@@ -182,25 +182,25 @@ var showButton = function(){
 
 var finishTest = function(){
 //console.log("finishTest");
-    createCookie("time", visualizzazione, "10"); 
+    createCookie("time", visualizzazione, "10");
     window.location.href = 'caricamento_dati.php';
 }
 
-function createCookie(name, value, days) { 
-    var expires; 
-      
-    if (days) { 
-        var date = new Date(); 
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); 
-        expires = "; expires=" + date.toGMTString(); 
-    } 
-    else { 
-        expires = ""; 
-    } 
-      
-    document.cookie = escape(name) + "=" +  
-        escape(value) + expires + "; path=/"; 
-} 
+function createCookie(name, value, days) {
+    var expires;
+
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+
+    document.cookie = escape(name) + "=" +
+        escape(value) + expires + "; path=/";
+}
 
 //CRONOMETRO
 var minuti=0;
