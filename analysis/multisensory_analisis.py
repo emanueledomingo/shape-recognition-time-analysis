@@ -6,7 +6,7 @@ import pymysql.cursors
 import matplotlib.pyplot as plot
 
 # Statistics libraries
-from statsmodels.genmod.families import Poisson
+from statsmodels.genmod.families import Gamma
 from scipy.stats import iqr
 from statistics import median
 from statsmodels.genmod.generalized_estimating_equations import GEE
@@ -138,8 +138,8 @@ def glm():
     # print a brief summary of the dataframe
     print(dataframe.head())
 
-    # Poisson distributed data is intrinsically integer-valued, since we have to count data.
-    fam = Poisson()
+    # Gamma distributed data is intrinsically real and positive, since we have to count times.
+    fam = Gamma()
     # No correlation between the observations
     ind = Independence()
 
