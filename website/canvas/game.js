@@ -19,7 +19,6 @@ var Shape = function (index, color) {
     this.index = index;
     this.color = color;
 }
-
 var Shapes = new Array();
 
 var checkFind = function(x,y){
