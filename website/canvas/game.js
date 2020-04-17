@@ -10,11 +10,6 @@ var toFind;
 var colorToFind;
 var stop = 0;
 
-//TODO
-/*
-	- l'immagine da trovare cambia sempre e non è uguale per tutto (avoid asymmetric skills transfer)
-    - memorizzare tempo e appena trova l'immagine fermare e fare query ?? <- da js è un casino, bisogna vedere....
-*/
 
 var Shape = function (index, color) {
     this.Sprite = new Image();
@@ -28,13 +23,13 @@ var Shape = function (index, color) {
 var Shapes = new Array();
 
 var checkFind = function(x,y){
-//console.log("Inside checkFind");
+
 	for(var i = 0; i < Shapes.length; i++){
 	var temp = Shapes[i];
 		if((temp.index != toFind)){continue;}
-        	//console.log("XPos: " + temp.XPos + " YPos: " + temp.YPos);
+
 			if((Math.abs(temp.XPos-x) < 32) && (Math.abs(temp.YPos-y) < 32)){
-			//console.log("TROVATOOO");
+
             return true;
 			}
 	}
@@ -49,16 +44,7 @@ if(checkFind(x,y)){
 stopTime();
 showButton();
 }
-/*
-	if(shapeNumber <= 40){
 
-		context.clearRect(0, 0, canvas.width, canvas.height);
-        Shapes = [];
-  		drawRandomShape();
-    }else{
-    	console.log("finished");
-    }
-*/
 }
 
 var convertColor = function(number){
@@ -71,7 +57,7 @@ if(number == 6) return 'yellow';
 }
 
 var drawRandomShape = function () {
-   //console.log("number: "+shapeNumber);
+
    var numberTotaleFigure = 40;
    if(colorToFind == 'black'){
    numberTotaleFigure = 40;
@@ -85,7 +71,7 @@ var drawRandomShape = function () {
       var shape = new Shape(index, color_rnd);
       var xPos = Math.floor(Math.random() * (canvas.width-64));
       var yPos = Math.floor(Math.random() * (canvas.height-64));
-     // console.log("generated "+xPos+" "+yPos);
+
       shape.XPos = xPos +32;
       shape.YPos = yPos +32;
       if(Shapes.length > 1){
@@ -113,7 +99,6 @@ var drawRandomShape = function () {
             }
         }
       }
-      //console.log("positioned "+shape.XPos+" "+shape.YPos + " Index " + shape.index);
       Shapes.push(shape);
     }
     checkFindElement();
@@ -128,11 +113,11 @@ var drawRandomShape = function () {
 //sostituito il primo elemento, se invece l'elemento target viene trovato più volte deve essere
 //sostituito con uno casuale
 var checkFindElement = function(){
-//console.log("Inside checkFindElement");
+
   check = false;
   for(var i = 0; i < Shapes.length; i++){
   	var temp = Shapes[i];
-    //console.log("index:" + temp.index + " colore:" + temp.color);
+
     if((temp.index == toFind)){
         if(check){
         	if(toFind > 1){
@@ -151,22 +136,21 @@ var checkFindElement = function(){
     }
   }
   if(!check){
-    //console.log("Figura non presente");
+
   	var temp = Shapes[0];
-    //console.log(temp);
+
     var shape = new Shape(toFind, colorToFind);
     shape.XPos = temp.XPos;
     shape.YPos = temp.YPos;
     Shapes[0] = shape;
-    //console.log(Shapes[0]);
+
   }
 }
 var main = function (shapeToFind, numberOfShape, color){
-  //console.log("Shape to find: " + shapeToFind);
+
   toFind = shapeToFind;
   shapeNumber = numberOfShape;
-  //console.log("Number of Shape: " + numberOfShape);
-  //console.log("color to find: " + color);
+
   colorToFind = color;
   drawRandomShape();
   document.getElementById("start").style.visibility = 'hidden';
@@ -181,7 +165,7 @@ var showButton = function(){
 }
 
 var finishTest = function(){
-//console.log("finishTest");
+
     createCookie("time", visualizzazione, "10");
     window.location.href = '/core/caricamento_dati.php';
 }
