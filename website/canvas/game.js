@@ -133,21 +133,16 @@ var checkFindElement = function() {
     }
   }
   if (!check) {
-
     var temp = Shapes[0];
-
     var shape = new Shape(toFind, colorToFind);
     shape.XPos = temp.XPos;
     shape.YPos = temp.YPos;
     Shapes[0] = shape;
-
   }
 }
 var main = function(shapeToFind, numberOfShape, color) {
-
   toFind = shapeToFind;
   shapeNumber = numberOfShape;
-
   colorToFind = color;
   drawRandomShape();
   document.getElementById("start").style.visibility = 'hidden';
@@ -162,7 +157,6 @@ var showButton = function() {
 }
 
 var finishTest = function() {
-
   createCookie("time", visualizzazione, "10");
   window.location.href = '/core/caricamento_dati.php';
 }
