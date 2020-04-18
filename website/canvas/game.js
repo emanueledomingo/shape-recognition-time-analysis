@@ -55,7 +55,6 @@ var convertColor = function(number) {
 }
 
 var drawRandomShape = function() {
-
   var numberTotaleFigure = 40;
   if (colorToFind == 'black') {
     numberTotaleFigure = 40;
@@ -110,11 +109,9 @@ var drawRandomShape = function() {
 //sostituito il primo elemento, se invece l'elemento target viene trovato più volte deve essere
 //sostituito con uno casuale
 var checkFindElement = function() {
-
   check = false;
   for (var i = 0; i < Shapes.length; i++) {
     var temp = Shapes[i];
-
     if ((temp.index == toFind)) {
       if (check) {
         if (toFind > 1) {
