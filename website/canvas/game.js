@@ -45,14 +45,7 @@ var mouseClicked = function(mouse) {
   }
 }
 
-var convertColor = function(number) {
-  if (number == 1) return 'black';
-  if (number == 2) return 'blue';
-  if (number == 3) return 'gray_scale';
-  if (number == 4) return 'green';
-  if (number == 5) return 'red';
-  if (number == 6) return 'yellow';
-}
+
 
 var drawRandomShape = function() {
   var numberTotaleFigure = 40;
