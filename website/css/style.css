@@ -1,4 +1,4 @@
-body {
+.body {
   background-color: #F5F5F5;
 }
 .main {
@@ -6,7 +6,7 @@ body {
   height: 80vh;
   width: 80vw;
   margin: auto;
-  
+
 }
 
 .canvas {
