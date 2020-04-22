@@ -94,9 +94,7 @@ def boxplot(color_name):
         mod = int(row[1]) - 45
         i = int(mod - (4 * (mod / 5)))
         if row[2] in color_name:
-            print(row)
             levels_times[i][color].append(float(row[0]))
-            print(levels_times[i][color])
 
     # calculating the statistical indicators
     for i in range(0, 10):
